@@ -17,10 +17,19 @@ export class MyCard extends LitElement {
     this.title = 'Title Default';
     this.image = 'https://via.placeholder.com/300x200.png?text=Image+Placeholder';
     this.description = 'Description Default';
+    this.fancy = false;
   }
 
   static get styles() {
     return css`
+      :host {
+        display: inline-block;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+        :host([fancy]) .card{
+          background-color: var(--my-card-fancy-bg)
+        }
       h1 {
       color: darkblue;
       font-family: Helvetica;
@@ -34,10 +43,6 @@ export class MyCard extends LitElement {
       display: inline-block;  
       max-width: 350px;       
       overflow-wrap: break-word;
-      }
-      #cardlist {
-        display: flex;
-        flex-wrap: wrap;
       }
       .card {
     background-color: lightblue;
@@ -87,7 +92,7 @@ export class MyCard extends LitElement {
     <h1> ${this.title}</h1>
     <img src="${this.source}" alt="${this.title}">
     <div>
-      <p> ${this.description}</p>
+      <slot></slot>
     </div>
   </div>`;
   }
@@ -96,7 +101,7 @@ export class MyCard extends LitElement {
     return {
       title: { type: String },
       source: { type: String },
-      description: { type: String },
+      fancy: { type: Boolean, reflect: true },
     };
   }
 }
