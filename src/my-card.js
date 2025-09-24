@@ -55,6 +55,23 @@ export class MyCard extends LitElement {
   width: 100%;
   max-width: 350px;
 }
+ details summary {
+    text-align: left;
+    font-size: 20px;
+    padding: 8px 0;
+  }
+
+  details[open] summary {
+    font-weight: bold;
+  }
+  
+  details div {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+    height: 70px;
+    overflow: auto;
+  }
 @media (min-width: 500px) and (max-width: 800px) {
   .card button {
     display: block;
@@ -87,12 +104,29 @@ export class MyCard extends LitElement {
     `;
   }
 
+
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+  }
+
+
   render() {
     return html`<div class="card">
     <h1> ${this.title}</h1>
     <img src="${this.source}" alt="${this.title}">
     <div>
-      <slot></slot>
+    <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+      <summary>Description</summary>
+      <div>
+        <slot></slot>
+  </div>
+    </details>
     </div>
   </div>`;
   }
