@@ -27,82 +27,84 @@ export class MyCard extends LitElement {
         box-sizing: border-box;
         font-family: Arial, sans-serif;
       }
-        :host([fancy]) .card{
-          background-color: var(--my-card-fancy-bg)
+      :host([fancy]) .card{
+        background-color: var(--my-card-fancy-bg)
         }
       h1 {
-      color: darkblue;
-      font-family: Helvetica;
+        color: darkblue;
+        font-family: Helvetica;
       }
       p {
-      color: white;
-      font-family: sans-serif;
-      font-size: 12px;        
-      margin-top: 4px;        
-      text-align: left;       
-      display: inline-block;  
-      max-width: 350px;       
-      overflow-wrap: break-word;
+        color: white;
+        font-family: sans-serif;
+        font-size: 12px;        
+        margin-top: 4px;        
+        text-align: left;       
+        display: inline-block;  
+        max-width: 350px;       
+        overflow-wrap: break-word;
       }
       .card {
-    background-color: lightblue;
-    padding: 8px;
-    margin: 12px;
-    max-width: 400px;
-    text-align: center;
-}
-.card img {
-  width: 100%;
-  max-width: 350px;
-}
- details summary {
-    text-align: left;
-    font-size: 20px;
-    padding: 8px 0;
-  }
+        background-color: lightblue;
+        padding: 8px;
+        margin: 12px;
+        max-width: 400px;
+        text-align: center;
+      }
+      .card img {
+        width: 350px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+      }
+      details summary {
+          text-align: left;
+          font-size: 20px;
+          padding: 8px 0;
+        }
 
-  details[open] summary {
-    font-weight: bold;
-  }
-  
-  details div {
-    border: 2px solid black;
-    text-align: left;
-    padding: 8px;
-    height: 70px;
-    overflow: auto;
-  }
-@media (min-width: 500px) and (max-width: 800px) {
-  .card button {
-    display: block;
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-@media (max-width: 500px) {
-  .card {
-    max-width: 90%;
-    padding: 4px;
-    margin: 12px auto;
-  }
-  .card img {
-    height: auto;
-    margin: 12px auto;
-  }
-  .card p {
-    font-size: 8px;
-    max-width: 100%;
-  }
-  .card button {
-    display: none;
-  }
-}
-.control-wrapper > button {
-  display: inline-block !important;
-  margin: 4px;
-}
-    `;
-  }
+      details[open] summary {
+        font-weight: bold;
+      }
+      
+      details div {
+        border: 2px solid black;
+        text-align: left;
+        padding: 8px;
+        height: 70px;
+        overflow: auto;
+      }
+      @media (min-width: 500px) and (max-width: 800px) {
+        .card button {
+          display: block;
+          font-size: 12px;
+          padding: 4px 8px;
+        }
+      }
+      @media (max-width: 500px) {
+        .card {
+          max-width: 90%;
+          padding: 4px;
+          margin: 12px auto;
+        }
+        .card img {
+          height: auto;
+          margin: 12px auto;
+        }
+        .card p {
+          font-size: 8px;
+          max-width: 100%;
+        }
+        .card button {
+          display: none;
+        }
+      }
+      .control-wrapper > button {
+        display: inline-block !important;
+        margin: 4px;
+      }
+          `;
+        }
 
 
   openChanged(e) {
@@ -114,7 +116,6 @@ export class MyCard extends LitElement {
       this.fancy = false;
     }
   }
-
 
   render() {
     return html`<div class="card">
